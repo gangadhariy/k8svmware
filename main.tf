@@ -55,4 +55,17 @@ resource "vsphere_virtual_machine" "vm" {
 
   }
 }
+  customize {
+      linux_options {
+        host_name = terravm
+      }
 
+      network_interface {
+        ipv4_address    = "10.0.1.211"
+        ipv4_netmask    = "24"
+        dns_server_list = "8.8.8.8"
+      }
+
+      ipv4_gateway = 10.0.1.1
+    }
+  }
